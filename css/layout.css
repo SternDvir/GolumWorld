@@ -13,7 +13,7 @@ body {
 
 main {
   width: 100%;
-  max-width: min(95vw, 75rem);
+  max-width: min(97vw, 80rem);
   padding: 0 var(--spacing-md);
   flex: 1;
 }
@@ -24,7 +24,11 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
   border-bottom: 2px solid var(--color-accent);
   z-index: 1000;
   padding: var(--spacing-sm) 0;

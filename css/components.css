@@ -1,26 +1,12 @@
 /* Component styles: buttons, cards, nav, modal, toast */
 
-/* Skip link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-accent);
-  color: var(--color-light);
-  padding: var(--spacing-sm);
-  z-index: 1001;
-  transition: top 0.2s ease-in-out;
-  text-decoration: none;
-  font-family: var(--font-body);
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
 /* Menu button for mobile toggle */
 .menu-btn {
-  background: linear-gradient(90deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
   border: 2px solid var(--color-accent);
   border-radius: var(--border-radius);
   padding: 12px 20px;
@@ -28,7 +14,8 @@
   color: var(--color-text);
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   box-shadow: var(--shadow-soft);
   display: none; /* Shown on mobile via JS */
 }
@@ -52,7 +39,11 @@
 .nav li a {
   display: block;
   padding: 12px 20px;
-  background: linear-gradient(90deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
   color: var(--color-text);
   text-decoration: none;
   border: 2px solid var(--color-accent);
@@ -60,7 +51,8 @@
   font-weight: 600;
   font-size: 1.08rem;
   font-family: var(--font-body);
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   box-shadow: var(--shadow-soft);
   letter-spacing: 1px;
 }
@@ -90,7 +82,11 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-background-start) 0%,
+      var(--color-background-end) 100%
+    );
     padding: var(--spacing-sm);
     box-shadow: var(--shadow-medium);
     display: none;
@@ -109,6 +105,43 @@
   border: 0.25rem double var(--color-accent);
   display: block;
   margin: var(--spacing-md) auto;
+}
+
+#Where-is {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: transparent;
+  text-align: center;
+  padding: var(--spacing-sm) clamp(1rem, 8vw, 3.75rem);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(75, 46, 5, 0.3);
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  margin: var(--spacing-sm) auto;
+  border-radius: var(--border-radius);
+  border: 0.25rem double var(--color-accent);
+  max-width: min(90vw, 25rem);
+  width: fit-content;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-soft);
+}
+
+#Where-is:hover {
+  background: rgba(255, 251, 230, 0.2);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+#Where-is:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-soft);
+}
+
+#Where-is:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* Container styles for spots and people sections */
@@ -154,7 +187,11 @@
 #people-list li a {
   display: block;
   padding: 12px 0;
-  background: linear-gradient(90deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
   color: var(--color-text);
   text-decoration: none;
   border: 2px solid var(--color-accent);
@@ -163,7 +200,8 @@
   font-weight: 600;
   font-size: 1.08rem;
   font-family: var(--font-body);
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   box-shadow: var(--shadow-soft);
   letter-spacing: 1px;
 }
@@ -178,7 +216,11 @@
 
 /* Footer Styles */
 .site-footer {
-  background: linear-gradient(135deg, var(--color-background-start), var(--color-background-end));
+  background: linear-gradient(
+    135deg,
+    var(--color-background-start),
+    var(--color-background-end)
+  );
   border-top: 0.1875rem solid var(--color-accent);
   margin-top: var(--spacing-lg);
   padding: var(--spacing-md) 0;
@@ -229,7 +271,7 @@
 }
 
 .footer-links a {
-  color: #8B4513;
+  color: #8b4513;
   text-decoration: none;
   font-family: var(--font-body);
   font-weight: normal;
@@ -285,5 +327,206 @@
 
   .footer-branding {
     padding-top: var(--spacing-sm);
+  }
+}
+
+/* About section styles */
+.about {
+  text-align: center;
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+}
+
+.about h2 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* About toggle button */
+#aboutToggle {
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+#aboutToggle:hover {
+  background: var(--color-accent);
+  color: var(--color-light);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+#aboutToggle:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-soft);
+}
+
+#aboutToggle:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* About panel */
+#aboutPanel {
+  background: var(--color-light);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-medium);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: all 0.5s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+#aboutPanel.show {
+  opacity: 1;
+  max-height: 1000px;
+  transform: translateY(0);
+}
+
+#aboutPanel p {
+  color: var(--color-text);
+  text-align: left;
+  line-height: 1.6;
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+}
+
+/* About image styles */
+.about-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--border-radius);
+  border: 0.25rem double var(--color-accent);
+  display: block;
+  margin: var(--spacing-md) auto 0 auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease-in-out;
+}
+
+.about-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments for about section */
+@media (max-width: 768px) {
+  .about {
+    padding: var(--spacing-sm);
+  }
+
+  #aboutToggle {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  #aboutPanel {
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  #aboutToggle {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  #aboutPanel p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Map Animation Styles - Cool "Unfolding Map" Effect */
+.map-container {
+  perspective: 1000px; /* Gives 3D depth for the rotation effect */
+  overflow: hidden;
+}
+
+.map-image {
+  /* Initial state - hidden and ready to animate */
+  opacity: 0;
+  transform: scale(0.3) rotateX(-15deg) rotateY(5deg);
+  transform-origin: center center;
+  filter: blur(2px);
+  transition: none; /* Disable any default transitions */
+}
+
+.map-image.reveal {
+  /* Trigger the animation when this class is added */
+  animation: mapUnfold 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes mapUnfold {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotateX(-15deg) rotateY(5deg);
+    filter: blur(2px);
+  }
+
+  40% {
+    opacity: 0.7;
+    transform: scale(0.8) rotateX(-8deg) rotateY(2deg);
+    filter: blur(1px);
+  }
+
+  70% {
+    opacity: 0.9;
+    transform: scale(1.02) rotateX(2deg) rotateY(-1deg);
+    filter: blur(0.5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Add a subtle glow effect when animation completes */
+.map-image.reveal {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(139, 69, 19, 0.2); /* Subtle brown glow like old parchment */
+}
+
+/* Backup animation for reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .map-image.reveal {
+    animation: mapFadeIn 1s ease-out forwards;
+  }
+
+  @keyframes mapFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }

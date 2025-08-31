@@ -2,7 +2,8 @@
 
 :root {
   --font-body: "EB Garamond", Garamond, "Times New Roman", Times, serif;
-  --font-heading: "UnifrakturCook", "EB Garamond", Garamond, "Times New Roman", Times, serif;
+  --font-heading: "UnifrakturCook", "EB Garamond", Garamond, "Times New Roman",
+    Times, serif;
   --color-text: #4b2e05;
   --color-accent: #7c5c1b;
   --color-light: #fffbe6;
@@ -19,7 +20,11 @@
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
 }
 
 p {
@@ -38,19 +43,4 @@ h1 {
   margin: 0 auto var(--spacing-md) auto;
   max-width: min(90vw, 37.5rem);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-#Where-is {
-  font-family: var(--font-body);
-  color: #000;
-  text-align: center;
-  padding: var(--spacing-sm) clamp(1rem, 8vw, 3.75rem);
-  font-weight: bold;
-  text-shadow: var(--color-text) 1px;
-  font-size: clamp(1.1rem, 3vw, 1.25rem);
-  margin: var(--spacing-sm) auto;
-  border-radius: var(--spacing-md);
-  border: 0.25rem double var(--color-accent);
-  max-width: min(90vw, 25rem);
-  width: fit-content;
 }

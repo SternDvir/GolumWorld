@@ -1,0 +1,73 @@
+{
+  "characters": [
+    {
+      "name": "Frodo Baggins",
+      "race": "Hobbit",
+      "affiliation": "The Fellowship of the Ring",
+      "description": "The Ring-bearer, a Hobbit of the Shire tasked with carrying the One Ring to Mount Doom to be destroyed. He is known for his compassion and resilience.",
+      "key_items": [
+        "The One Ring",
+        "Sting",
+        "Mithril coat",
+        "Phial of Galadriel"
+      ],
+      "gollums_thoughts": "Nice Master... yes, he was nice to us. He understood the Precious's burden, yes he did! But he lied! Tricked us, sent us away! He wanted to keep it for himself, the thief! No... poor Master, it hurt him too. We felt it. We would have helped him... then taken our Precious back!"
+    },
+    {
+      "name": "Samwise Gamgee",
+      "race": "Hobbit",
+      "affiliation": "The Fellowship of the Ring",
+      "description": "Frodo's loyal gardener and companion on the quest. He is stout-hearted, deeply loyal, and suspicious of Gollum.",
+      "key_items": ["Sting (briefly)", "Elven Rope", "Lembas Bread"],
+      "gollums_thoughts": "Nasty, fat hobbitses! Always watching, always listening with his big ears! He never trusted us, no Precious! Stole our food, the lembas bread, and blamed us! We hates him! He wanted the Precious for himself, oh yes we saw him with it! We should have bitten his fingers off!"
+    },
+    {
+      "name": "Bilbo Baggins",
+      "race": "Hobbit",
+      "affiliation": "The Shire",
+      "description": "The first Hobbit to possess the One Ring after finding it in Gollum's cave. His long life was extended by its power.",
+      "key_items": ["The One Ring (formerly)", "Sting"],
+      "gollums_thoughts": "Thief! Baggins! He stole it from us! It was our birthday present! He came into our cave, in the dark, and he put it in his nasty pocketses! We hates him forever! He took our Precious away from us, yes, and now we are all alone. We wants to squeeze him and hear him squeak!"
+    },
+    {
+      "name": "Gandalf",
+      "race": "Maiar (Wizard)",
+      "affiliation": "The Fellowship of the Ring, The White Council",
+      "description": "A powerful wizard who guides the Fellowship. He is wise, powerful, and a primary force against Sauron.",
+      "key_items": ["Glamdring", "Wizard's Staff", "Narya (Ring of Fire)"],
+      "gollums_thoughts": "The White Wizard! Aah! Bright lights and fire! He hurts us, asks us questions! We hates questions! He caught us once, let the elves poke us. Stay away from him, yes, stay away in the dark where it's safe. He knows too much about our Precious."
+    },
+    {
+      "name": "Aragorn",
+      "race": "Human (Dúnedain)",
+      "affiliation": "The Fellowship of the Ring, Heir of Isildur",
+      "description": "The heir to the throne of Gondor, known as Strider. He is a great warrior, a tracker, and a leader of men.",
+      "key_items": ["Andúril (Flame of the West)", "Ring of Barahir"],
+      "gollums_thoughts": "Strider! Long legs and a hard face. He is dangerous, yes, very dangerous. He looks at us and he sees right through us. We don't like his eyes. And his big sword, so bright! Keep away from Strider, he is too strong for us, Precious."
+    },
+    {
+      "name": "Sauron",
+      "race": "Maiar (Dark Lord)",
+      "affiliation": "Mordor",
+      "description": "The Dark Lord and original creator of the One Ring. His spirit resides in Mordor, seeking to reclaim the Ring and dominate Middle-earth.",
+      "key_items": ["The One Ring (master of)", "The Palantíri (formerly)"],
+      "gollums_thoughts": "The Eye! No, no, we mustn't think of the Eye! Always watching! He wants his Precious back! But it's OURS! He hurt us, burned us, asked us questions about the Baggins! We hate him! But we fear him, oh yes. We must keep the Precious hidden from the Eye."
+    },
+    {
+      "name": "Galadriel",
+      "race": "Elf",
+      "affiliation": "Lothlórien",
+      "description": "The Lady of the Golden Wood, a powerful Elf-queen. She is a bearer of one of the Three Elven Rings, Nenya.",
+      "key_items": ["Nenya (Ring of Adamant)", "Mirror of Galadriel"],
+      "gollums_thoughts": "The White Witch! The Lady of the Elves! Aah! Her light, it burns! We could not look at her. She saw inside our head, saw our Precious! We hates her light, hates all shiny Elves! They have their own magic rings, but ours is the master, yes Precious, ours!"
+    },
+    {
+      "name": "Shelob",
+      "race": "Great Spider",
+      "affiliation": "Cirith Ungol (herself)",
+      "description": "A monstrous spider dwelling in the passes above Minas Morgul. She is an ancient evil, driven by an insatiable hunger.",
+      "key_items": [],
+      "gollums_thoughts": "Shelob! My friend, oh yes. So clever we were! We made a deal. She was hungry, always hungry. We would bring her juicy hobbitses to eat, and she would let us have the Precious after she was done! A good plan, a great plan! But the nasty hobbit had a light, a star-glass! He hurt her! Stupid hobbit ruined everything!"
+    }
+  ]
+}
