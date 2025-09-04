@@ -31,6 +31,30 @@ if (whereIsButton && contentWrapper) {
   });
 }
 
+// Mobile menu toggle
+const menuBtn = document.querySelector(".menu-btn");
+const primaryNav = document.getElementById("primaryNav");
+
+if (menuBtn && primaryNav) {
+  // On page load, check if menu should be open
+  if (sessionStorage.getItem("menuOpen") === "true") {
+    primaryNav.classList.add("open");
+    menuBtn.setAttribute("aria-expanded", "true");
+  }
+
+  menuBtn.addEventListener("click", () => {
+    const isOpen = primaryNav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+
+    // Save the state to sessionStorage
+    if (isOpen) {
+      sessionStorage.setItem("menuOpen", "true");
+    } else {
+      sessionStorage.removeItem("menuOpen");
+    }
+  });
+}
+
 // About toggle functionality
 const aboutToggle = document.getElementById("aboutToggle");
 const aboutPanel = document.getElementById("aboutPanel");
@@ -62,61 +86,9 @@ if (aboutToggle && aboutPanel) {
   });
 }
 
-// Map Animation System
-function initializeMapAnimation() {
-  // Only run on locations page
-  const mapImage = document.querySelector(".map-image");
-  if (!mapImage) return;
-
-  let animationTriggered = false;
-
-  function triggerMapAnimation() {
-    if (animationTriggered) return;
-
-    animationTriggered = true;
-    mapImage.classList.add("reveal");
-  }
-
-  // Strategy 1: Animate when image loads
-  if (mapImage.complete && mapImage.naturalHeight !== 0) {
-    // Image already loaded
-    setTimeout(triggerMapAnimation, 100);
-  } else {
-    // Wait for image to load
-    mapImage.addEventListener("load", () => {
-      setTimeout(triggerMapAnimation, 100);
-    });
-
-    // Fallback timeout (3 seconds)
-    setTimeout(triggerMapAnimation, 3000);
-  }
-
-  // Strategy 2: Animate when scrolled into view
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            triggerMapAnimation();
-            observer.unobserve(mapImage);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    // Start observing after a short delay
-    setTimeout(() => {
-      if (!animationTriggered) {
-        observer.observe(mapImage);
-      }
-    }, 500);
-  }
-}
-
 // Initialize all features when DOM is ready
 function initializeAllFeatures() {
-  initializeMapAnimation();
+  // This function is now empty as page-specific logic has been moved.
 }
 
 if (document.readyState === "loading") {

@@ -10,23 +10,28 @@
   </head>
   <body>
     <header class="site-header">
-      <nav aria-label="Primary">
-        <ul id="primaryNav" class="nav">
+      <nav>
+        <ul class="nav" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="characters.html">Characters</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="sightings.html">Sightings</a></li>
-          <li><a aria-current="page" href="gallery.html">Gallery</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         </ul>
       </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="primaryNav">
+        Menu
+      </button>
     </header>
     <main id="main">
-      <h1>Precious Gallery</h1>
-      <p>
-        A collection of images from Gollum's journey and the world of
-        Middle-earth...
-      </p>
-      <!-- Gallery content will go here -->
+      <div class="gallery-container">
+        <h1>Gollum's Precious Moments</h1>
+        <p>
+          A collection of images from Gollum's journey and the world of
+          Middle-earth...
+        </p>
+        <!-- Gallery content will go here -->
+      </div>
     </main>
 
     <footer class="site-footer">

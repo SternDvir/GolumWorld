@@ -73,27 +73,40 @@
 @media (max-width: 768px) {
   .menu-btn {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto var(--spacing-md);
   }
 
   .nav {
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
     width: 100%;
-    background: linear-gradient(
-      135deg,
-      var(--color-background-start) 0%,
-      var(--color-background-end) 100%
-    );
     padding: var(--spacing-sm);
-    box-shadow: var(--shadow-medium);
     display: none;
+    gap: var(--spacing-sm);
   }
 
-  .nav:not([hidden]) {
+  .nav.open {
     display: flex;
+  }
+
+  /* When the menu is open, style the menu button and nav links */
+  .nav.open + .menu-btn,
+  .nav.open li a {
+    width: 40%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav li a {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav li a {
+    padding: 10px 15px;
+    font-size: 1rem;
   }
 }
 
@@ -466,6 +479,12 @@
 .map-container {
   perspective: 1000px; /* Gives 3D depth for the rotation effect */
   overflow: hidden;
+  position: relative;
+}
+
+.map-content {
+  position: relative; /* All pins will be positioned relative to this */
+  transition: transform 0.4s ease; /* Make the zoom smooth */
 }
 
 .map-image {
@@ -474,12 +493,94 @@
   transform: scale(0.3) rotateX(-15deg) rotateY(5deg);
   transform-origin: center center;
   filter: blur(2px);
-  transition: none; /* Disable any default transitions */
+  width: 95%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border: 3px double #5d4037;
 }
 
 .map-image.reveal {
   /* Trigger the animation when this class is added */
-  animation: mapUnfold 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: mapUnfold 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1) rotateX(0deg) rotateY(0deg);
+  filter: blur(0px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(139, 69, 19, 0.2); /* Subtle brown glow like old parchment */
+  transition: transform 0.4s ease;
+}
+
+.sighting-pin {
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #f1f50a; /* Gold */
+  border: 0.1rem solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #fff;
+  transform: translate(-50%, -50%); /* Centers the pin perfectly */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.sighting-pin:hover {
+  animation-play-state: paused; /* Stop pulsing on hover */
+  transform: translate(-50%, -50%) scale(1.5); /* Enlarge on hover */
+}
+
+.sighting-tooltip {
+  position: absolute;
+  overflow: hidden;
+  bottom: 150%; /* Position above the pin */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(236, 218, 190, 0.8);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.4rem;
+  border: 0.3em double burlywood;
+  border-radius: 5em;
+  box-shadow: var(--shadow-medium);
+  white-space: nowrap;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sighting-tooltip.align-right {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.sighting-tooltip.align-left {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.sighting-pin:hover .sighting-tooltip {
+  opacity: 0.9; /* Show on hover */
+  visibility: visible;
+}
+
+.tooltip-title {
+  font-size: 2em;
+  color: black;
+  /* Your other h4 styles... */
+}
+
+.tooltip-clue {
+  font-size: 1.8em;
+  color: black;
+  /* Your other p styles... */
+}
+
+.tooltip-reporter {
+  font-size: 1.5em;
+  color: #333; /* Dark gray */
+  /* Your other small/reporter styles... */
 }
 
 @keyframes mapUnfold {
@@ -508,9 +609,16 @@
   }
 }
 
-/* Add a subtle glow effect when animation completes */
-.map-image.reveal {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(139, 69, 19, 0.2); /* Subtle brown glow like old parchment */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #fff;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #fff;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #fff;
+  }
 }
 
 /* Backup animation for reduced motion preferences */
@@ -528,5 +636,216 @@
       opacity: 1;
       transform: scale(1);
     }
+  }
+}
+
+/* Sighting Form Styles */
+.sighting-form-section {
+  background: rgba(255, 248, 220, 0.95);
+  border: 0.25rem double var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) auto;
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+  max-width: min(90vw, 40rem);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  margin: 0 auto var(--spacing-md) auto;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(123, 94, 32, 0.3);
+}
+
+.sighting-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: left;
+}
+
+.form-group label {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-soft);
+  letter-spacing: 0.5px;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-1px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #5d4037;
+  box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.1), var(--shadow-medium);
+  transform: translateY(-1px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(75, 46, 5, 0.6);
+  font-style: italic;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-style: italic;
+}
+
+.form-group input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: var(--color-light);
+  border-radius: 4px;
+  border: 1px solid var(--color-accent);
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #8f5d06;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--color-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-group input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #eddc20;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--color-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-instruction {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-style: italic;
+  margin: var(--spacing-sm) 0;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+}
+
+.sighting-form .btn {
+  background: linear-gradient(
+    90deg,
+    var(--color-background-start) 0%,
+    var(--color-background-end) 100%
+  );
+  border: 2px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-soft);
+  align-self: center;
+  margin-top: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.sighting-form .btn:hover {
+  background: var(--color-accent);
+  color: var(--color-light);
+  box-shadow: var(--shadow-medium);
+  letter-spacing: 0.0625rem;
+  transform: translateY(-2px);
+}
+
+.sighting-form .btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.sighting-marker {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+  border: 2px dashed red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Allows clicking through the marker */
+}
+
+/* Responsive adjustments for form */
+@media (max-width: 768px) {
+  .sighting-form-section {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-md) auto;
+  }
+
+  .sighting-form {
+    gap: var(--spacing-sm);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sighting-form-section {
+    margin: var(--spacing-sm) auto;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+
+  .sighting-form .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }

@@ -7,38 +7,40 @@
     <link rel="stylesheet" href="css/base.css" type="text/css" />
     <link rel="stylesheet" href="css/layout.css" type="text/css" />
     <link rel="stylesheet" href="css/components.css" type="text/css" />
+    <link rel="stylesheet" href="css/pages.css" type="text/css" />
   </head>
   <body>
     <header class="site-header">
-      <nav aria-label="Primary">
-        <ul id="primaryNav" class="nav">
+      <nav>
+        <ul class="nav" id="primaryNav">
           <li><a href="index.html">Home</a></li>
           <li><a href="characters.html">Characters</a></li>
-          <li><a aria-current="page" href="locations.html">Locations</a></li>
+          <li>
+            <a href="locations.html" aria-current="page">Locations</a>
+          </li>
           <li><a href="sightings.html">Sightings</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="primaryNav">
+        Menu
+      </button>
     </header>
-    <main id="main">
-      <h1>Places of Middle-earth</h1>
-      <p>
-        Explore the mysterious locations where Gollum has wandered in search of
-        his precious...
+    <main class="main-content" id="main">
+      <h1 class="page-title">Gollum's Known Whereabouts</h1>
+      <p class="page-intro">
+        Gollum has wandered far and wide, always driven by the Precious. Below
+        are some of the key places that have shaped his wretched journey.
       </p>
       <div class="map-container">
         <img
-          class="img map-image"
+          class="map-image"
           src="assets/images/middle-earth-map.jpeg"
           alt="Map of Middle-earth showing all the locations where Gollum has wandered"
-          style="
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 2rem 0;
-          "
         />
       </div>
+      <h2 class="section-title">You can find me here... precious!</h2>
+      <section id="locations-grid" class="locations-grid"></section>
       <!-- Location content will go here -->
     </main>
 
@@ -68,5 +70,6 @@
     </footer>
 
     <script src="./js/main.js" defer></script>
+    <script src="./js/pages/locations.js" defer></script>
   </body>
 </html>

@@ -30,7 +30,7 @@ main {
     var(--color-background-end) 100%
   );
   border-bottom: 2px solid var(--color-accent);
-  z-index: 1000;
+  z-index: 5;
   padding: var(--spacing-sm) 0;
   box-shadow: var(--shadow-soft);
 }
@@ -49,6 +49,14 @@ main {
 
 /* Responsive layout for mobile */
 @media (max-width: 768px) {
+  .site-header {
+    position: static;
+  }
+
+  body {
+    padding-top: var(--spacing-md);
+  }
+
   .content-wrapper {
     flex-direction: column;
     width: 100%;

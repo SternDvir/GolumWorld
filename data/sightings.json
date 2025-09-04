@@ -1,0 +1,46 @@
+{
+  "sightings": [
+    {
+      "id": "shire",
+      "name": "The Shire",
+      "coordinates": { "top": 25, "left": 22 },
+      "clue": "A glint of gold was seen near a Hobbit-hole. The thief Baggins lives there! We knows it!",
+      "reported_by": "A Suspicious Farmer"
+    },
+    {
+      "id": "misty_mountains",
+      "name": "Misty Mountains",
+      "coordinates": { "top": 40, "left": 35 },
+      "clue": "Deep in the caves, where the goblinses creep, a lost treasure waits. Our home... our Precious!",
+      "reported_by": "A Lost Goblin"
+    },
+    {
+      "id": "gladden_fields",
+      "name": "Gladden Fields",
+      "coordinates": { "top": 45, "left": 43 },
+      "clue": "In the murky riverbed... that's where we found it! Our birthday present! It might have returned.",
+      "reported_by": "A Fish"
+    },
+    {
+      "id": "mirkwood",
+      "name": "Mirkwood",
+      "coordinates": { "top": 38, "left": 50 },
+      "clue": "The shiny Elves caught us here! Maybe they took it from us? Nasty Elves!",
+      "reported_by": "A Scared Spider"
+    },
+    {
+      "id": "cirith_ungol",
+      "name": "Cirith Ungol",
+      "coordinates": { "top": 76, "left": 63 },
+      "clue": "We led the hobbitses to Her lair! A perfect plan... the Precious was almost ours again!",
+      "reported_by": "Gollum's Echo"
+    },
+    {
+      "id": "mordor",
+      "name": "Mount Doom, Mordor",
+      "coordinates": { "top": 75, "left": 72 },
+      "clue": "The fire... it took it! But did it? Did it really? We must check the cracks... yes, precious, we must!",
+      "reported_by": "A Wisp of Smoke"
+    }
+  ]
+}
