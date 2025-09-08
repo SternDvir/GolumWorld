@@ -29,7 +29,7 @@ body {
 
 p {
   font-family: var(--font-body);
-  color: #000;
+  color: var(--color-text);
   text-align: center;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-bottom: var(--spacing-sm);
