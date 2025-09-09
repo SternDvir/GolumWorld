@@ -55,11 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchSightings() {
     try {
-      const response = await fetch("../data/sightings.json");
+      const response = await fetch("http://localhost:8080/api/sightings", {
+        method: "GET",
+      });
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
-      return data.sightings;
+      return data;
     } catch (error) {
       console.error("Could not fetch sightings data:", error);
       mapContent.innerHTML =
@@ -152,6 +154,26 @@ document.addEventListener("DOMContentLoaded", () => {
     newSightingCoordinates = null;
     const marker = mapContent.querySelector(".sighting-marker");
     if (marker) marker.remove();
+    (async function () {
+      try {
+        const response = await fetch("http://localhost:8080/api/sightings", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newSighting),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Success:", data);
+      } catch (error) {
+        console.error("Request failed:", error);
+      }
+    })();
 
     alert("Yesss, precious! A new secret for us! We will find it!");
   }
